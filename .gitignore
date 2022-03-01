@@ -4,3 +4,4 @@ mobile-common/.gradle
 debugFramework
 .idea/
 *.xcuserdatad/
+buildSrc

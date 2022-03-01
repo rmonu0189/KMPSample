@@ -1,1 +1,0 @@
-/Users/monurathor/Documents/DianApps/KMPSample/mobile-common/buildSrc/build/classes/kotlin/main/DependenciesKt.class
