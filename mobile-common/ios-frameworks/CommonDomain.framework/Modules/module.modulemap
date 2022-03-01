@@ -1,0 +1,6 @@
+framework module CommonDomain {
+    umbrella header "CommonDomain.h"
+
+    export *
+    module * { export * }
+}

@@ -1,0 +1,21 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+apply plugin: "com.github.ben-manes.versions"
+
+buildscript {
+    apply from: 'dependencies.gradle'
+    addRepos(repositories)
+
+    dependencies {
+        classpath defaultGradlePlugins.values()
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.android.tools.build:gradle:${android_gradle_version}"
+        classpath "com.github.ben-manes:gradle-versions-plugin:$ben_manes_version"
+    }
+}
+
+allprojects {
+    addRepos(repositories)
+}
+
+tasks.getByPath(':common-domain:assemble').dependsOn

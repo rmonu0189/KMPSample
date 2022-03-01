@@ -1,0 +1,6 @@
+framework module CommonData {
+    umbrella header "CommonData.h"
+
+    export *
+    module * { export * }
+}

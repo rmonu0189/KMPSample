@@ -1,0 +1,77 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+    id "com.android.library"
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+apply from: '../dependencies.gradle'
+apply from: '../versions.gradle'
+
+configurations {
+    compileClasspath
+}
+
+kotlin {
+    jvm()
+    android()
+    ios {
+        binaries {
+            framework {
+                baseName = "CommonData"
+            }
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation project(":common-domain")
+            implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:$kotlinx_serialization_runtime"
+            implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinx_serialization_runtime"
+            api "org.jetbrains.kotlinx:kotlinx-datetime:$kotlinx_datetime"
+            implementation "io.ktor:ktor-client-core:$ktor_version"
+            implementation "io.ktor:ktor-client-serialization:$ktor_version"
+            implementation "io.ktor:ktor-client-logging:$ktor_version"
+        }
+        androidMain {
+            dependsOn(commonMain)
+        }
+        androidMain.dependencies {
+            implementation("com.google.firebase:firebase-storage:$firebase_storage_version")
+            implementation("com.google.firebase:firebase-config:$firebase_config_version")
+            implementation("androidx.core:core-ktx:1.6.0")
+            implementation "com.filestack:filestack-java:$filestack_version"
+            implementation("com.google.dagger:hilt-android:$hilt_version")
+        }
+        androidTest.dependencies {
+            implementation("org.mockito:mockito-core:$mockito_version")
+            implementation("org.mockito:mockito-inline:$mockito_version")
+            implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin_version")
+        }
+        iosMain {
+            dependsOn(commonMain)
+        }
+        jvmMain {
+            dependsOn(commonMain)
+        }
+        jvmTest.dependencies {
+            implementation("org.mockito:mockito-core:$mockito_version")
+            implementation("org.mockito:mockito-inline:$mockito_version")
+            implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin_version")
+        }
+    }
+}
+
+android {
+    compileSdkVersion(project.compileSdkVersion)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(project.minSdkVersion)
+        targetSdkVersion(project.targetSdkVersion)
+    }
+    compileOptions {
+        sourceCompatibility compile_java_version
+        targetCompatibility compile_java_version
+    }
+    kotlinOptions {
+        jvmTarget = compile_jvm_target
+    }
+}

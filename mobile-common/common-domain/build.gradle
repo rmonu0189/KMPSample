@@ -1,0 +1,45 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+    id 'maven-publish'
+}
+apply from: '../dependencies.gradle'
+apply from: '../versions.gradle'
+
+group = "com.plume.common.domain"
+version = "0.87.0"
+
+configurations {
+    compileClasspath
+}
+
+kotlin {
+    jvm()
+    ios {
+        binaries {
+            framework {
+                baseName = "CommonDomain"
+                transitiveExport = true
+            }
+        }
+    }
+    sourceSets {
+
+        commonMain.dependencies {
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_coroutines"
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$kotlinx_coroutines_common"
+            api "org.jetbrains.kotlinx:kotlinx-datetime:$kotlinx_datetime"
+        }
+
+        jvmMain.dependencies {
+            implementation(kotlin("stdlib"))
+            implementation("org.jetbrains:annotations:18.0.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kotlinx_coroutines")
+        }
+
+        jvmTest.dependencies {
+            implementation("org.mockito:mockito-core:$mockito_version")
+            implementation("org.mockito:mockito-inline:$mockito_version")
+            implementation("com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin_version")
+        }
+    }
+}

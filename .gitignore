@@ -1,0 +1,6 @@
+Libraries/
+mobile-common/.idea
+mobile-common/.gradle
+debugFramework
+.idea/
+*.xcuserdatad/

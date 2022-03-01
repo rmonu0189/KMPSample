@@ -1,0 +1,22 @@
+pluginManagement {
+    plugins {
+        id 'org.jetbrains.kotlin.multiplatform' version '1.4.10'
+    }
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "mobile-common"
+
+include(":common-domain")
+
+buildCache {
+    local {
+        enabled = true
+        removeUnusedEntriesAfterDays = 1
+    }
+}
+include ':common-data'

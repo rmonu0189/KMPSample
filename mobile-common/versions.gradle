@@ -1,0 +1,8 @@
+ext{
+    compileSdkVersion = 30
+    minSdkVersion = 19
+    targetSdkVersion = 30
+
+    compile_java_version = JavaVersion.VERSION_1_8
+    compile_jvm_target = '1.8'
+}
