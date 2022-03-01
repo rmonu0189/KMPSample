@@ -1,0 +1,60 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+    id "com.squareup.sqldelight"
+}
+
+group = "com.plume.common.data"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+configurations {
+    compileClasspath
+}
+
+kotlin {
+    jvm()
+    ios {
+        binaries {
+            framework {
+                baseName = "DataCommon"
+                transitiveExport = true
+
+                export(project(":common-data"))
+                export(project(":common-domain"))
+            }
+        }
+    }
+
+    def iOSTarget = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
+    if (iOSTarget) {
+        iosArm64("ios")
+    } else {
+        iosX64("ios")
+    }
+
+    sourceSets {
+        commonMain.dependencies {}
+
+        iosMain.dependencies {
+            api(project(":common-domain"))
+            api(project(":common-data"))
+        }
+    }
+}
+
+task(packForXcode, type: Sync) {
+    group = 'build'
+    def mode = System.getenv('CONFIGURATION') ?: 'DEBUG'
+    def sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
+    def targetName = "ios${(sdkName.startsWith("iphoneos")) ? "Arm64" : "X64"}"
+    def framework = kotlin.targets.getByName(targetName).binaries.getFramework(mode)
+    inputs.property('mode', mode)
+    dependsOn(framework.linkTask)
+    def targetDir = new File(buildDir, 'xcode-frameworks')
+    from({ framework.outputDirectory })
+    into(targetDir)
+}
+
+tasks.getByName('build').dependsOn(packForXcode)

@@ -1,4 +1,4 @@
-import CommonDomain
+import DataCommon
 
 class SignupViewModel: SignupViewModelProtocol {
     var showLoader: Bindable<Bool> = Bindable(false)

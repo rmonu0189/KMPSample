@@ -20,3 +20,4 @@ buildCache {
     }
 }
 include ':common-data'
+include ':data-common'

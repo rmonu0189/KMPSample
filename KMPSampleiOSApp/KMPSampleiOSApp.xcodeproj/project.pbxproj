@@ -19,10 +19,8 @@
 		320DE62927C8B87600FAD69C /* CoordinatedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DE62427C8B87500FAD69C /* CoordinatedNavigationController.swift */; };
 		320DE62A27C8B87600FAD69C /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DE62527C8B87500FAD69C /* BaseCoordinator.swift */; };
 		320DE62B27C8B87600FAD69C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320DE62727C8B87500FAD69C /* AppDelegate.swift */; };
-		3230720B27CCFB9500494886 /* CommonData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3230720827CCFB6A00494886 /* CommonData.framework */; platformFilter = ios; };
-		3230720C27CCFB9500494886 /* CommonData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3230720827CCFB6A00494886 /* CommonData.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3230720D27CCFB9600494886 /* CommonDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3230720727CCFB6A00494886 /* CommonDomain.framework */; platformFilter = ios; };
-		3230720E27CCFB9600494886 /* CommonDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3230720727CCFB6A00494886 /* CommonDomain.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3280915227CE36B500FE6C89 /* DataCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3280915027CE36A800FE6C89 /* DataCommon.framework */; platformFilter = ios; };
+		3280915327CE36B500FE6C89 /* DataCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3280915027CE36A800FE6C89 /* DataCommon.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		32D71B5027CDD95C0074B857 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D71B4F27CDD95C0074B857 /* AppDIContainer.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +31,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3230720C27CCFB9500494886 /* CommonData.framework in Embed Frameworks */,
-				3230720E27CCFB9600494886 /* CommonDomain.framework in Embed Frameworks */,
+				3280915327CE36B500FE6C89 /* DataCommon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,8 +51,7 @@
 		320DE62427C8B87500FAD69C /* CoordinatedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatedNavigationController.swift; sourceTree = "<group>"; };
 		320DE62527C8B87500FAD69C /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		320DE62727C8B87500FAD69C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3230720727CCFB6A00494886 /* CommonDomain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonDomain.framework; path = ../Libraries/CommonDomain.framework; sourceTree = "<group>"; };
-		3230720827CCFB6A00494886 /* CommonData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonData.framework; path = ../Libraries/CommonData.framework; sourceTree = "<group>"; };
+		3280915027CE36A800FE6C89 /* DataCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataCommon.framework; path = ../Libraries/DataCommon.framework; sourceTree = "<group>"; };
 		32D71B4F27CDD95C0074B857 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* KMPSampleiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMPSampleiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,8 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3230720B27CCFB9500494886 /* CommonData.framework in Frameworks */,
-				3230720D27CCFB9600494886 /* CommonDomain.framework in Frameworks */,
+				3280915227CE36B500FE6C89 /* DataCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,8 +230,7 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3230720827CCFB6A00494886 /* CommonData.framework */,
-				3230720727CCFB6A00494886 /* CommonDomain.framework */,
+				3280915027CE36A800FE6C89 /* DataCommon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
